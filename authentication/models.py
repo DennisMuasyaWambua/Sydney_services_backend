@@ -29,3 +29,30 @@ class User(AbstractUser):
 
     class Meta:
          db_table = 'user'
+
+class Services(models.Model):
+      name  = models.CharField(max_length=255)
+      category = models.CharField(max_length=255)
+
+      def __str__(self):
+           return self.name
+
+      class Meta:
+           db_table = 'services'
+
+class ServiceProvider(models.Model):
+      name = models.CharField(max_length=255)
+      image = models.ImageField(upload_to="service_provider")
+      contact = models.CharField(max_length=255)
+      rating = models.IntegerField()
+      total_reviews = models.IntegerField()
+      service = models.ForeignKey(Services, on_delete=models.CASCADE)
+      
+      class Meta:
+           db_table = 'service_provider'
+class Reviews(models.Model):
+      provider = models.ForeignKey(ServiceProvider, on_delete=models.CASCADE)
+      message = models.TextField()
+
+      class Meta:
+          db_table = 'reviews'
