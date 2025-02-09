@@ -92,7 +92,7 @@ if os.environ.get("ENVIRONMENT")=="development":
     }
 else:
     DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': dj_database_url.config(default=os.getenv("DATABASE_PUBLIC_URL"))
     }
 
 
