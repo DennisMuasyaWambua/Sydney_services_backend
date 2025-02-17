@@ -23,9 +23,9 @@ jobs:
 
     - uses: actions/checkout@v4
     - name: Tagging the image
-      run: docker tag sydney_services muasyadennis/sydney_services:latest
+      run: docker tag sydney_services muasyadennis/sydney_services:v1.0
 
     - uses: actions/checkout@v4
     - name: push image to docker hub
-      run: docker push muasyadennis/sydney_services:latest
+      run: docker push muasyadennis/sydney_services:v1.0
 
